@@ -5,19 +5,41 @@
         <div v-if="showGroups" class="content-groups w-full">
           <div class="flex flex-col rounded-lg px-px py-px">
             <OneCategory
+              group-key="incomeAndTransfers"
               icon="💰"
               label="Income & transfers"
               @select="toggle"
               class="rounded-t-lg"
             />
-            <OneCategory icon="⚙️" label="Running costs" @select="toggle" />
-            <OneCategory icon="✈️" label="Meals & travel" @select="toggle" />
-            <OneCategory icon="🚗" label="Vehicle" @select="toggle" />
-            <OneCategory icon="🏦" label="Financial costs" @select="toggle" />
-            <OneCategory icon="⚒️" label="Cost of goods sold" @select="toggle" />
-            <OneCategory icon="🧵" label="Miscellaneous" @select="toggle" />
-            <OneCategory icon="🏡" label="Home office" @select="toggle" />
             <OneCategory
+              group-key="runningCosts"
+              icon="⚙️"
+              label="Running costs"
+              @select="toggle($event)"
+            />
+            <OneCategory
+              group-key="mealsAndTravel"
+              icon="✈️"
+              label="Meals & travel"
+              @select="toggle"
+            />
+            <OneCategory group-key="vehicle" icon="🚗" label="Vehicle" @select="toggle" />
+            <OneCategory
+              group-key="financialCosts"
+              icon="🏦"
+              label="Financial costs"
+              @select="toggle"
+            />
+            <OneCategory group-key="cogs" icon="⚒️" label="Cost of goods sold" @select="toggle" />
+            <OneCategory
+              group-key="miscellaneous"
+              icon="🧵"
+              label="Miscellaneous"
+              @select="toggle"
+            />
+            <OneCategory group-key="homeOffice" icon="🏡" label="Home office" @select="toggle" />
+            <OneCategory
+              group-key="personal"
               icon="✌️"
               label="Personal"
               @select="toggle"
@@ -28,10 +50,7 @@
       </Transition>
 
       <Transition name="categories">
-        <div
-          v-if="showCategories"
-          class="content-categories border border-green-200 h-12 w-full p-1 rounded-lg"
-        >
+        <div v-if="showCategories" class="content-categories h-12 w-full p-1 rounded-lg">
           <button
             class="py-2 px-3 w-full text-left hover:underline flex items-center"
             @click="toggle"
@@ -39,7 +58,7 @@
             <span class="mr-1 text-lg"><Icon icon="heroicons:arrow-long-left-20-solid" /></span>
             Back
           </button>
-          <div>Categories</div>
+          <div>{{ selectedGroupKey }}</div>
         </div>
       </Transition>
     </div>
@@ -53,8 +72,10 @@ import OneCategory from './components/OneCategory.vue'
 
 const showGroups = ref(true)
 const showCategories = ref(false)
+const selectedGroupKey = ref('')
 
-function toggle() {
+function toggle(groupKey: string) {
+  selectedGroupKey.value = groupKey
   showGroups.value = !showGroups.value
   showCategories.value = !showCategories.value
 }

@@ -1,10 +1,10 @@
 <template>
   <button
     class="one-group h-14 w-full text-left p-1 border-b pl-4 pr-3 flex items-center"
-    @click="$emit('select')"
+    @click="$emit('select', groupKey)"
   >
     <span class="mr-2">{{ icon }}</span>
-    <div class="flex-1">{{ label }}</div>
+    <span class="flex-1">{{ label }}</span>
     <Icon icon="heroicons:chevron-right" class="text-xl" />
   </button>
 </template>
@@ -13,12 +13,13 @@
 import { Icon } from '@iconify/vue'
 
 defineProps<{
+  groupKey?: string
   icon: string
   label: string
 }>()
 
 defineEmits<{
-  (e: 'select'): void
+  (e: 'select', key: string): void
 }>()
 </script>
 
