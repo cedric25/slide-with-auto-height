@@ -1,0 +1,9 @@
+{
+  // https://github.com/vuejs/tsconfig
+  "extends": "@vue/tsconfig/tsconfig.json",
+
+  // https://vitejs.dev/guide/features.html#typescript
+  "compilerOptions": {
+    "types": ["vite/client"]
+  }
+}

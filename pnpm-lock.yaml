@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@vitejs/plugin-vue': ^4.0.0
+  '@vue/tsconfig': ^0.1.3
   autoprefixer: ^10.4.13
   postcss: ^8.4.21
   prettier: ^2.8.4
@@ -15,6 +16,7 @@ dependencies:
 
 devDependencies:
   '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
+  '@vue/tsconfig': 0.1.3
   autoprefixer: 10.4.13_postcss@8.4.21
   postcss: 8.4.21
   prettier: 2.8.4
@@ -349,6 +351,15 @@ packages:
 
   /@vue/shared/3.2.47:
     resolution: {integrity: sha512-BHGyyGN3Q97EZx0taMQ+OLNuZcW3d37ZEVmEAyeoA9ERdGvm9Irc/0Fua8SNyOtV1w6BS4q25wbMzJujO9HIfQ==}
+
+  /@vue/tsconfig/0.1.3:
+    resolution: {integrity: sha512-kQVsh8yyWPvHpb8gIc9l/HIDiiVUy1amynLNpCy8p+FoCiZXCo6fQos5/097MmnNZc9AtseDsCrfkhqCrJ8Olg==}
+    peerDependencies:
+      '@types/node': '*'
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+    dev: true
 
   /acorn-node/1.8.2:
     resolution: {integrity: sha512-8mt+fslDufLYntIoPAaIMUe/lrbrehIiwmR3t2k9LljIzoigEPF27eLk2hy8zSGzmR/ogr7zbRKINMo1u0yh5A==}
