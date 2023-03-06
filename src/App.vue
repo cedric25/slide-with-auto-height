@@ -2,51 +2,7 @@
   <div class="w-[350px] mt-12 mx-auto">
     <div class="parent bg-white h-[506px] rounded-lg">
       <Transition name="groups">
-        <div v-if="showGroups" class="content-groups w-full">
-          <div class="flex flex-col rounded-lg px-px py-px">
-            <OneCategory
-              group-key="incomeAndTransfers"
-              icon="💰"
-              label="Income & transfers"
-              @select="toggle"
-              class="rounded-t-lg"
-            />
-            <OneCategory
-              group-key="runningCosts"
-              icon="⚙️"
-              label="Running costs"
-              @select="toggle($event)"
-            />
-            <OneCategory
-              group-key="mealsAndTravel"
-              icon="✈️"
-              label="Meals & travel"
-              @select="toggle"
-            />
-            <OneCategory group-key="vehicle" icon="🚗" label="Vehicle" @select="toggle" />
-            <OneCategory
-              group-key="financialCosts"
-              icon="🏦"
-              label="Financial costs"
-              @select="toggle"
-            />
-            <OneCategory group-key="cogs" icon="⚒️" label="Cost of goods sold" @select="toggle" />
-            <OneCategory
-              group-key="miscellaneous"
-              icon="🧵"
-              label="Miscellaneous"
-              @select="toggle"
-            />
-            <OneCategory group-key="homeOffice" icon="🏡" label="Home office" @select="toggle" />
-            <OneCategory
-              group-key="personal"
-              icon="✌️"
-              label="Personal"
-              @select="toggle"
-              class="!border-b-0 rounded-b-lg"
-            />
-          </div>
-        </div>
+        <GroupsList v-if="showGroups" class="content-groups w-full" @toggle="toggle" />
       </Transition>
 
       <Transition name="categories">
@@ -58,7 +14,7 @@
             <span class="mr-1 text-lg"><Icon icon="heroicons:arrow-long-left-20-solid" /></span>
             Back
           </button>
-          <div>{{ selectedGroupKey }}</div>
+          <div class="mt-2 ml-3">Selected: {{ selectedGroupKey }}</div>
         </div>
       </Transition>
     </div>
@@ -68,7 +24,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Icon } from '@iconify/vue'
-import OneCategory from './components/OneCategory.vue'
+import GroupsList from './components/GroupsList.vue'
 
 const showGroups = ref(true)
 const showCategories = ref(false)
