@@ -32,7 +32,13 @@
           v-if="showCategories"
           class="content-categories border border-green-200 h-12 w-full p-1 rounded-lg"
         >
-          <button class="py-2 px-3 w-full text-left" @click="toggle">← Back</button>
+          <button
+            class="py-2 px-3 w-full text-left hover:underline flex items-center"
+            @click="toggle"
+          >
+            <span class="mr-1 text-lg"><Icon icon="heroicons:arrow-long-left-20-solid" /></span>
+            Back
+          </button>
           <div>Categories</div>
         </div>
       </Transition>
@@ -42,6 +48,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Icon } from '@iconify/vue'
 import OneCategory from './components/OneCategory.vue'
 
 const showGroups = ref(true)

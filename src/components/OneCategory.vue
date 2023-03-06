@@ -1,17 +1,23 @@
 <template>
-  <button class="one-group h-14 w-full text-left p-1 border-b px-4" @click="$emit('select')">
+  <button
+    class="one-group h-14 w-full text-left p-1 border-b pl-4 pr-3 flex items-center"
+    @click="$emit('select')"
+  >
     <span class="mr-2">{{ icon }}</span>
-    {{ label }}
+    <div class="flex-1">{{ label }}</div>
+    <Icon icon="heroicons:chevron-right" class="text-xl" />
   </button>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
+import { Icon } from '@iconify/vue'
+
+defineProps<{
   icon: string
   label: string
 }>()
 
-const emit = defineEmits<{
+defineEmits<{
   (e: 'select'): void
 }>()
 </script>
