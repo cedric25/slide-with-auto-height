@@ -55,8 +55,6 @@
 </template>
 
 <script setup lang="ts">
-import OneCategory from './OneCategory.vue'
-
 defineEmits<{
   (e: 'toggle', groupKey: string): void
 }>()

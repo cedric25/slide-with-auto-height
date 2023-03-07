@@ -24,7 +24,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Icon } from '@iconify/vue'
-import GroupsList from './components/GroupsList.vue'
 
 const showGroups = ref(true)
 const showCategories = ref(false)
