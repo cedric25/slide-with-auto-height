@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[350px] mt-[150px] mx-auto">
+  <div class="w-[350px] mt-[10vh] mx-auto">
     <div ref="parentRef" class="parent bg-white rounded-lg">
       <Transition name="groups">
         <div v-if="showGroups" ref="groupsRef" class="content-groups">
