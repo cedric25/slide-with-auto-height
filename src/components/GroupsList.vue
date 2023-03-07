@@ -4,8 +4,8 @@
       group-key="incomeAndTransfers"
       icon="💰"
       label="Income & transfers"
-      @select="$emit('toggle', $event)"
       class="rounded-t-lg"
+      @select="$emit('toggle', $event)"
     />
     <OneCategory
       group-key="runningCosts"
@@ -48,8 +48,8 @@
       group-key="personal"
       icon="✌️"
       label="Personal"
-      @select="$emit('toggle', $event)"
       class="!border-b-0 rounded-b-lg"
+      @select="$emit('toggle', $event)"
     />
   </div>
 </template>
