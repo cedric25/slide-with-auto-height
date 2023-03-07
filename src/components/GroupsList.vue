@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col rounded-lg px-px py-px">
+  <div class="flex flex-col rounded-lg px-px py-px [&>*]:border-b">
     <OneCategory
       group-key="incomeAndTransfers"
       icon="💰"

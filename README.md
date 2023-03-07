@@ -1,5 +1,7 @@
 # Vue 3 + Vite
 
+👉 Github repo linked to Medium post: xxx
+
 Init project:
 ```
 pnpm create vite slide-with-auto-height --template vue
