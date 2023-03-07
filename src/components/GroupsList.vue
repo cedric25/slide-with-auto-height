@@ -11,7 +11,7 @@
       group-key="runningCosts"
       icon="⚙️"
       label="Running costs"
-      @select="$emit('toggle', $event)($event)"
+      @select="$emit('toggle', $event)"
     />
     <OneCategory
       group-key="mealsAndTravel"
