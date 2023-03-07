@@ -73,7 +73,6 @@ watch(currentBlock, () => {
   position: absolute;
   top: 0;
   width: 100%;
-  height: auto;
 }
 .content-groups {
   left: 0;
