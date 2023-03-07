@@ -31,20 +31,36 @@ defineEmits<{
 
 const categories = ref<string[]>([])
 
-// if (props.selectedGroupKey === 'incomeAndTransfers') {
-categories.value = ['Income', 'Transfers', 'Credit card payments']
-// } else if (props.selectedGroupKey === 'runningCosts') {
-//   categories.value = [
-//     'Advertising',
-//     'Apps & software',
-//     'Contract labor',
-//     'Hardware',
-//     'Office supplies',
-//     'Office utilities',
-//     'Office expenses',
-//     'Professional services',
-//   ]
-// } else {
-//   categories.value = ['Other categories...']
-// }
+if (props.selectedGroupKey === 'incomeAndTransfers') {
+  categories.value = ['Income', 'Transfers', 'Credit card payments']
+} else if (props.selectedGroupKey === 'runningCosts') {
+  categories.value = [
+    'Advertising',
+    'Apps & software',
+    'Contract labor',
+    'Hardware',
+    'Office supplies',
+    'Office utilities',
+    'Office expenses',
+    'Professional services',
+  ]
+} else if (props.selectedGroupKey === 'mealsAndTravel') {
+  categories.value = ['Business & travel meals', 'Travel expenses']
+} else if (props.selectedGroupKey === 'vehicle') {
+  categories.value = ['Fuel', 'Parking & tolls', '...']
+} else if (props.selectedGroupKey === 'financialCosts') {
+  categories.value = ['Bank fees & commissions', '...']
+} else if (props.selectedGroupKey === 'cogs') {
+  categories.value = ['Purchases', 'Cost of labor', '...']
+} else if (props.selectedGroupKey === 'miscellaneous') {
+  categories.value = ['Business property rent & lease', '...']
+} else if (props.selectedGroupKey === 'homeOffice') {
+  categories.value = ['Home utilities', 'Home rent', 'Home mortgage', '...']
+} else if (props.selectedGroupKey === 'homeOffice') {
+  categories.value = ['Home utilities', 'Home rent', 'Home mortgage', '...']
+} else if (props.selectedGroupKey === 'personal') {
+  categories.value = ['Non self-employed earnings', '...']
+} else {
+  categories.value = ['Other category...']
+}
 </script>
