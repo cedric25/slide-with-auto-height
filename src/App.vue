@@ -99,7 +99,7 @@ watch(currentBlock, () => {
   transform: translate3d(-100%, 0, 0);
 }
 
-/* --- Back --- */
+/* --- "Back" transition --- */
 
 .groups-enter-from {
   transform: translate3d(-100%, 0, 0);
