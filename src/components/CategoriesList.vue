@@ -1,11 +1,8 @@
 <template>
   <div class="px-px py-px">
-    <button
-      class="mt-2 py-2 px-3 w-full text-left hover:underline flex items-center"
-      @click="$emit('back')"
-    >
+    <button class="btn mt-2 py-2 px-3 w-full text-left flex items-center" @click="$emit('back')">
       <span class="mr-1 text-lg"><Icon icon="heroicons:arrow-long-left-20-solid" /></span>
-      Back
+      <span class="link">Back</span>
     </button>
     <div
       v-for="category in categories"
@@ -64,3 +61,34 @@ if (props.selectedGroupKey === 'incomeAndTransfers') {
   categories.value = ['Other category...']
 }
 </script>
+
+<style scoped>
+/*
+ * Inspiration taken from here:
+ * https://tobiasahlin.com/blog/css-trick-animating-link-underlines/
+ */
+.link {
+  position: relative;
+}
+
+.link:before {
+  content: '';
+  position: absolute;
+  top: 90%;
+  bottom: unset;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  height: 2px;
+  background-color: rgb(0 30 110);
+  transform: scale(0);
+  transform-origin: left center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+  transition-property: opacity, transform;
+}
+
+.btn:hover .link:before {
+  opacity: 1;
+  transform: scale(1);
+}
+</style>
