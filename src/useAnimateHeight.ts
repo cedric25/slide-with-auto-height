@@ -31,12 +31,13 @@ function animateValue(
     const normalizedTime = duration - (endTimestamp - timestamp)
     const valueNow = Math.round(easeFn(normalizedTime, start, end - start, duration) * 1000) / 1000
     parentRef.value.style.height = `${valueNow}px`
-    if ((end < start && valueNow > end) || (end > start && valueNow < end)) {
-      window.requestAnimationFrame(step)
-    }
     // Hack for Safari
     if (normalizedTime >= duration) {
       parentRef.value.style.height = `${end}px`
+      return
+    }
+    if ((end < start && valueNow > end) || (end > start && valueNow < end)) {
+      window.requestAnimationFrame(step)
     }
   }
   window.requestAnimationFrame(step)
