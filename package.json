@@ -13,6 +13,7 @@
     "eslint:fix": "eslint \"src/**/*.{vue,js,ts}\" --fix"
   },
   "dependencies": {
+    "@vueuse/core": "^9.13.0",
     "vue": "^3.2.45"
   },
   "devDependencies": {

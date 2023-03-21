@@ -18,6 +18,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
+import { usePreferredReducedMotion } from '@vueuse/core'
 import { useAnimateHeight } from './useAnimateHeight'
 import { easeInOutQuad, easeOutQuart } from './easeFunctions'
 
@@ -45,18 +46,31 @@ function toggle(groupKey?: string) {
   }
 }
 
+const preferredMotion = usePreferredReducedMotion()
+const shouldReduceMotion = preferredMotion.value === 'reduce'
+
 onMounted(() => {
+  if (shouldReduceMotion) {
+    parentRef.value.style.height = `${groupsRef.value.offsetHeight}px`
+    return
+  }
   // Slightly slower animation at page init, with a different easing function
   animateHeight({ duration: 450, easeFn: easeInOutQuad, childRef: groupsRef })
 })
 
 watch(currentBlock, () => {
+  const childRef = currentBlock.value === 'categories' ? categoriesRef : groupsRef
+  if (shouldReduceMotion) {
+    setTimeout(() => {
+      parentRef.value.style.height = `${childRef.value.offsetHeight}px`
+    })
+    return
+  }
   clearTimeout(changePageTimeout)
   changePageTimeout = setTimeout(() => {
     // 350 -> Arbitrary value...
     // In theory we should put the same duration as the CSS transform transition (0.3s)
     // but visually it seems better to give a slightly longer duration here
-    const childRef = currentBlock.value === 'categories' ? categoriesRef : groupsRef
     animateHeight({ duration: 350, easeFn: easeOutQuart, childRef })
   }, 0)
 })
