@@ -23,22 +23,27 @@ function animateValue(
 ) {
   let startTimestamp: number
   let endTimestamp: number
-  const step = (timestamp: number) => {
+
+  // Internal arrow function, called as many times as needed
+  // (Called ~40 times with Chrome, ~20 times with Safari...)
+  function step(timestamp: number) {
     if (!startTimestamp) {
       startTimestamp = timestamp
       endTimestamp = startTimestamp + duration
     }
-    const normalizedTime = duration - (endTimestamp - timestamp)
-    const valueNow = Math.round(easeFn(normalizedTime, start, end - start, duration) * 1000) / 1000
+
+    const elapsed = timestamp - startTimestamp
+    const progress = Math.min(elapsed / duration, 1)
+    const valueNow = easeFn(progress, start, end - start, 1)
+
+    // -> The important line where the actual height of the div changes
     parentRef.value.style.height = `${valueNow}px`
-    // Hack for Safari
-    if (normalizedTime >= duration) {
-      parentRef.value.style.height = `${end}px`
-      return
-    }
-    if ((end < start && valueNow > end) || (end > start && valueNow < end)) {
+
+    // If still not the desired end value, keep animating
+    if (progress < 1) {
       window.requestAnimationFrame(step)
     }
   }
+
   window.requestAnimationFrame(step)
 }
