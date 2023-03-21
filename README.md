@@ -1,6 +1,8 @@
 # Vue 3 + Vite
 
-👉 Github repo linked to Medium post: xxx
+👉 Github repo linked to Medium post: https://medium.com/front-end-weekly/a-slide-transition-with-changing-height-bb504d0aa7fa
+
+## Final result
 
 ![Final result](./final-result.gif)
 
@@ -46,5 +48,6 @@ pnpm add prettier prettier-plugin-tailwindcss -D
 And later on:  
 + TypeScript  
 + ESLint  
-+ eslint-plugin-vue  
-+ unplugin-vue-components
++ [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue)  
++ [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)
++ [VueUse](https://vueuse.org/)
